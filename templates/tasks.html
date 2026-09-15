@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Tasks - Nexus Dashboard{% endblock %}
+
+{% block content %}
+<h1>Tasks</h1>
+
+<!-- Global task creation form, submits via fetch() in app.js to POST /api/tasks -->
+<form id="new-task-form">
+    <input type="text" id="new-task-title" placeholder="Task title" required>
+    <select id="new-task-priority">
+        <option value="Critical">Critical</option>
+        <option value="High">High</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="Low">Low</option>
+    </select>
+    <button type="submit">Add Task</button>
+</form>
+
+<!-- Search/filter controls, filtering happens client-side against the loaded task list -->
+<div class="task-filters">
+    <input type="text" id="task-search" placeholder="Search tasks...">
+    <select id="task-priority-filter">
+        <option value="">All priorities</option>
+        <option value="Critical">Critical</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+    </select>
+</div>
+
+<ul id="task-list">
+    <li>Loading...</li>
+</ul>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/tasks.js') }}"></script>
+{% endblock %}

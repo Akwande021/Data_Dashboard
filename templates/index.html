@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Overview - Nexus Dashboard{% endblock %}
+
+{% block content %}
+<h1>Overview</h1>
+<p>Welcome to your dashboard. Stats and charts for Finance, Projects, Fitness and Study will live here.</p>
+
+<!-- Recent tasks preview, populated from /api/tasks by app.js -->
+<section id="recent-tasks">
+    <h2>Recent Tasks</h2>
+    <ul id="recent-tasks-list">
+        <li>Loading...</li>
+    </ul>
+</section>
+{% endblock %}
