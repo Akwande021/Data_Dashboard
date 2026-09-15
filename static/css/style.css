@@ -1,0 +1,83 @@
+/* Base styles + light/dark theme via CSS variables (toggled by app.js) */
+:root {
+    --bg: #f7f7fb;
+    --text: #1a1a1f;
+    --sidebar-bg: #ffffff;
+    --border: #e2e2ea;
+    --accent: #6c5ce7;
+}
+
+[data-theme="dark"] {
+    --bg: #14141a;
+    --text: #f2f2f7;
+    --sidebar-bg: #1c1c24;
+    --border: #2b2b35;
+    --accent: #a29bfe;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "DM Sans", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar collapses to icon-only width when the "collapsed" class is toggled */
+.sidebar {
+    width: 220px;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--border);
+    transition: width 0.2s ease;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar nav a {
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.sidebar nav a:hover {
+    background: var(--border);
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.content {
+    padding: 1.5rem;
+}
